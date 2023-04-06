@@ -4,6 +4,7 @@ public class SubjectVisits {
 	
 	private String visitId;
 	private String patientId;
+	private String PatientVisitId;
 	private String visitDefId;
 	private String name;
 	private boolean visitCompleted;
@@ -56,6 +57,13 @@ public class SubjectVisits {
 	}
 	public void setPatientId(String patientId) {
 		this.patientId = patientId;
+	}
+	
+	public String getPatientVisitId() {
+		return PatientVisitId;
+	}
+	public void setPatientVisitId(String patientVisitId) {
+		PatientVisitId = patientVisitId;
 	}
 	public String getVisitDefId() {
 		return visitDefId;

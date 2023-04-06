@@ -7,6 +7,8 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Subject {
 	@NotNull
 	@NotEmpty(message = "StudyId is required.")
@@ -35,6 +37,7 @@ public class Subject {
 	private KeyMilestones keyMilestones;
 	@Valid
 	@NotNull
+	@JsonProperty("CustomFields")
 	private List<SubjectCustomFields> CustomFields;
 	@Valid
 	@NotNull

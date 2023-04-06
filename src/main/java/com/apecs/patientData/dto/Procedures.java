@@ -1,6 +1,7 @@
 package com.apecs.patientData.dto;
 
 public class Procedures {
+	private String PatientProcedureId;
 	private String procedureId;
 	private String patientId;
 	private String procedureDefId;
@@ -40,6 +41,15 @@ public class Procedures {
 		this.monitoringDate = monitoringDate;
 		this.edcUpdatedDate = edcUpdatedDate;
 	}
+	
+	public String getPatientProcedureId() {
+		return PatientProcedureId;
+	}
+
+	public void setPatientProcedureId(String patientProcedureId) {
+		PatientProcedureId = patientProcedureId;
+	}
+
 	public String getProcedureId() {
 		return procedureId;
 	}
