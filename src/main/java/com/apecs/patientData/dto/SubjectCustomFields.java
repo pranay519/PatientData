@@ -6,11 +6,13 @@ public class SubjectCustomFields {
 	@NotNull
 	private String name;
 	private String value;
+	private String type;
 	
-	public SubjectCustomFields(String name, String value) {
+	public SubjectCustomFields(String name, String value, String type) {
 		super();
 		this.name = name;
 		this.value = value;
+		this.type = type;
 	}
 
 	public String getName() {
@@ -25,5 +27,14 @@ public class SubjectCustomFields {
 	public void setValue(String value) {
 		this.value = value;
 	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+	
 	
 }

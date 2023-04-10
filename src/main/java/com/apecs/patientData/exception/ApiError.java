@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.validation.FieldError;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -16,7 +15,7 @@ class ApiError {
 	private LocalDateTime timestamp;
 	private String message;
 	private String debugMessage;
-	private List<FieldError> errorFields = new ArrayList<>();
+	private List<ApiSubError> errorFields = new ArrayList<>();
 
 	private ApiError() {
 		timestamp = LocalDateTime.now();
@@ -42,11 +41,11 @@ class ApiError {
 	}
 
 	public void addFieldError(String objectName, String field, String defaultmessage) {
-		FieldError error = new FieldError(objectName, field, defaultmessage);
-		errorFields.add(error);
+		ApiSubError apiSubError = new ApiValidationError(objectName, field, defaultmessage);
+		errorFields.add(apiSubError);
 	}
 
-	ApiError(HttpStatus status, String message, List<FieldError> errorFields, Throwable ex) {
+	ApiError(HttpStatus status, String message, List<ApiSubError> errorFields, Throwable ex) {
 		this();
 		this.status = status;
 		this.message = message;
@@ -86,12 +85,13 @@ class ApiError {
 		this.debugMessage = debugMessage;
 	}
 
-	public List<FieldError> getErrorFields() {
+	public List<ApiSubError> getErrorFields() {
 		return errorFields;
 	}
 
-	public void setErrorFields(List<FieldError> errorFields) {
+	public void setErrorFields(List<ApiSubError> errorFields) {
 		this.errorFields = errorFields;
 	}
+	
 
 }

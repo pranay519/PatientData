@@ -6,8 +6,7 @@ public class SubjectVisits {
 	
 	@NotNull
 	private String visitNumber;
-	private String name;
-	private String visitCompleted;
+	private boolean visitCompleted;
 	@NotNull
 	private String visitEvent;
 	private String visitDate;
@@ -22,13 +21,12 @@ public class SubjectVisits {
 	private String monitoringDate;
 	private boolean nonPayable;
 	private String edcUpdatedDate;
-	public SubjectVisits(@NotNull String visitNumber, String name, String visitCompleted, @NotNull String visitEvent,
+	public SubjectVisits(@NotNull String visitNumber, boolean visitCompleted, @NotNull String visitEvent,
 			String visitDate, String visitScheduleStartDate, String visitScheduleEndDate, @NotNull String siteNumber,
 			String patientStatus, String screenFailedReason, String sourceReference, String sourceSystem,
 			String monitoringDate, boolean nonPayable, String edcUpdatedDate) {
 		super();
 		this.visitNumber = visitNumber;
-		this.name = name;
 		this.visitCompleted = visitCompleted;
 		this.visitEvent = visitEvent;
 		this.visitDate = visitDate;
@@ -49,16 +47,10 @@ public class SubjectVisits {
 	public void setVisitNumber(String visitNumber) {
 		this.visitNumber = visitNumber;
 	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getVisitCompleted() {
+	public boolean isVisitCompleted() {
 		return visitCompleted;
 	}
-	public void setVisitCompleted(String visitCompleted) {
+	public void setVisitCompleted(boolean visitCompleted) {
 		this.visitCompleted = visitCompleted;
 	}
 	public String getVisitEvent() {

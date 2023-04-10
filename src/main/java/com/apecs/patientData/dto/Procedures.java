@@ -1,120 +1,40 @@
 package com.apecs.patientData.dto;
 
+import javax.validation.constraints.NotNull;
+
 public class Procedures {
-	private String PatientProcedureId;
-	private String procedureId;
-	private String patientId;
-	private String procedureDefId;
-	private String name;
-	private String siteId;
-	private String siteNumber;
-	private String procedureDate;
-	private boolean nonPayable;
-	private String visitId;
-	private String visitName;
-	private String visitDate;
+	@NotNull
 	private String sourceReference;
+	@NotNull
 	private String sourceTable;
+	@NotNull
 	private String sourceSystem;
+	private String procedureDate;
+	@NotNull
+	private String visitNumber;
+	@NotNull
+	private String visitNumberRef;
+	@NotNull
+	private String patientProcedure;
+	private boolean nonPayable;
+	private String visitDate;
 	private String monitoringDate;
 	private String edcUpdatedDate;
-	
-	
-	public Procedures(String procedureId, String patientId, String procedureDefId, String name, String siteId,
-			String siteNumber, String procedureDate, boolean nonPayable, String visitId, String visitName,
-			String visitDate, String sourceReference, String sourceTable, String sourceSystem, String monitoringDate, String edcUpdatedDate) {
+	public Procedures(String sourceReference, String sourceTable, String sourceSystem, String procedureDate,
+			String visitNumber, String visitNumberRef, String patientProcedure, boolean nonPayable, String visitDate,
+			String monitoringDate, String edcUpdatedDate) {
 		super();
-		this.procedureId = procedureId;
-		this.patientId = patientId;
-		this.procedureDefId = procedureDefId;
-		this.name = name;
-		this.siteId = siteId;
-		this.siteNumber = siteNumber;
-		this.procedureDate = procedureDate;
-		this.nonPayable = nonPayable;
-		this.visitId = visitId;
-		this.visitName = visitName;
-		this.visitDate = visitDate;
 		this.sourceReference = sourceReference;
 		this.sourceTable = sourceTable;
 		this.sourceSystem = sourceSystem;
+		this.procedureDate = procedureDate;
+		this.visitNumber = visitNumber;
+		this.visitNumberRef = visitNumberRef;
+		this.patientProcedure = patientProcedure;
+		this.nonPayable = nonPayable;
+		this.visitDate = visitDate;
 		this.monitoringDate = monitoringDate;
 		this.edcUpdatedDate = edcUpdatedDate;
-	}
-	
-	public String getPatientProcedureId() {
-		return PatientProcedureId;
-	}
-
-	public void setPatientProcedureId(String patientProcedureId) {
-		PatientProcedureId = patientProcedureId;
-	}
-
-	public String getProcedureId() {
-		return procedureId;
-	}
-	public void setProcedureId(String procedureId) {
-		this.procedureId = procedureId;
-	}
-	public String getPatientId() {
-		return patientId;
-	}
-	public void setPatientId(String patientId) {
-		this.patientId = patientId;
-	}
-	public String getProcedureDefId() {
-		return procedureDefId;
-	}
-	public void setProcedureDefId(String procedureDefId) {
-		this.procedureDefId = procedureDefId;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getSiteId() {
-		return siteId;
-	}
-	public void setSiteId(String siteId) {
-		this.siteId = siteId;
-	}
-	public String getSiteNumber() {
-		return siteNumber;
-	}
-	public void setSiteNumber(String siteNumber) {
-		this.siteNumber = siteNumber;
-	}
-	public String getProcedureDate() {
-		return procedureDate;
-	}
-	public void setProcedureDate(String procedureDate) {
-		this.procedureDate = procedureDate;
-	}
-	public boolean isNonPayable() {
-		return nonPayable;
-	}
-	public void setNonPayable(boolean nonPayable) {
-		this.nonPayable = nonPayable;
-	}
-	public String getVisitId() {
-		return visitId;
-	}
-	public void setVisitId(String visitId) {
-		this.visitId = visitId;
-	}
-	public String getVisitName() {
-		return visitName;
-	}
-	public void setVisitName(String visitName) {
-		this.visitName = visitName;
-	}
-	public String getVisitDate() {
-		return visitDate;
-	}
-	public void setVisitDate(String visitDate) {
-		this.visitDate = visitDate;
 	}
 	public String getSourceReference() {
 		return sourceReference;
@@ -134,6 +54,42 @@ public class Procedures {
 	public void setSourceSystem(String sourceSystem) {
 		this.sourceSystem = sourceSystem;
 	}
+	public String getProcedureDate() {
+		return procedureDate;
+	}
+	public void setProcedureDate(String procedureDate) {
+		this.procedureDate = procedureDate;
+	}
+	public String getVisitNumber() {
+		return visitNumber;
+	}
+	public void setVisitNumber(String visitNumber) {
+		this.visitNumber = visitNumber;
+	}
+	public String getVisitNumberRef() {
+		return visitNumberRef;
+	}
+	public void setVisitNumberRef(String visitNumberRef) {
+		this.visitNumberRef = visitNumberRef;
+	}
+	public String getPatientProcedure() {
+		return patientProcedure;
+	}
+	public void setPatientProcedure(String patientProcedure) {
+		this.patientProcedure = patientProcedure;
+	}
+	public boolean isNonPayable() {
+		return nonPayable;
+	}
+	public void setNonPayable(boolean nonPayable) {
+		this.nonPayable = nonPayable;
+	}
+	public String getVisitDate() {
+		return visitDate;
+	}
+	public void setVisitDate(String visitDate) {
+		this.visitDate = visitDate;
+	}
 	public String getMonitoringDate() {
 		return monitoringDate;
 	}
@@ -147,6 +103,4 @@ public class Procedures {
 		this.edcUpdatedDate = edcUpdatedDate;
 	}
 	
-	
-
 }

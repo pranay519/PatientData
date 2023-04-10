@@ -35,6 +35,7 @@ public class Subject {
 	private String withdrawnDate;
 	private String withdrawnReason;
 	private String completedDate;
+	private String detailedSubjectStatus;
 	@Valid
 	private List<SubjectCustomFields> customFields;
 	@Valid
@@ -48,7 +49,7 @@ public class Subject {
 			String siteCountry, String gender, String currentStatus, String enrolledDate, String patientInitials,
 			String patientBirth, String subjectScreenFailedDate, String informedConsentDate, String screeningStartDate,
 			String screeningDate, String screenFailedDate, String screenFailedReason, String randomisedDate,
-			String withdrawnDate, String withdrawnReason, String completedDate,
+			String withdrawnDate, String withdrawnReason, String completedDate, String detailedSubjectStatus,
 			@Valid List<SubjectCustomFields> customFields, @Valid @NotNull List<SubjectVisits> subjectVisits,
 			@Valid @NotNull List<Procedures> subjectProcedures) {
 		super();
@@ -74,6 +75,7 @@ public class Subject {
 		this.withdrawnDate = withdrawnDate;
 		this.withdrawnReason = withdrawnReason;
 		this.completedDate = completedDate;
+		this.detailedSubjectStatus = detailedSubjectStatus;
 		this.customFields = customFields;
 		this.subjectVisits = subjectVisits;
 		this.subjectProcedures = subjectProcedures;
@@ -209,6 +211,13 @@ public class Subject {
 	}
 	public void setCompletedDate(String completedDate) {
 		this.completedDate = completedDate;
+	}
+	
+	public String getDetailedSubjectStatus() {
+		return detailedSubjectStatus;
+	}
+	public void setDetailedSubjectStatus(String detailedSubjectStatus) {
+		this.detailedSubjectStatus = detailedSubjectStatus;
 	}
 	public List<SubjectCustomFields> getCustomFields() {
 		return customFields;
