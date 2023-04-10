@@ -1,9 +1,11 @@
 package com.apecs.patientData.exception;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.FieldError;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -14,8 +16,7 @@ class ApiError {
 	private LocalDateTime timestamp;
 	private String message;
 	private String debugMessage;
-	private List<ApiSubError> subErrors;
-	private List<String> errorFields;
+	private List<FieldError> errorFields = new ArrayList<>();
 
 	private ApiError() {
 		timestamp = LocalDateTime.now();
@@ -37,6 +38,19 @@ class ApiError {
 		this();
 		this.status = status;
 		this.message = message;
+		this.debugMessage = ex.getLocalizedMessage();
+	}
+
+	public void addFieldError(String objectName, String field, String defaultmessage) {
+		FieldError error = new FieldError(objectName, field, defaultmessage);
+		errorFields.add(error);
+	}
+
+	ApiError(HttpStatus status, String message, List<FieldError> errorFields, Throwable ex) {
+		this();
+		this.status = status;
+		this.message = message;
+		this.errorFields = errorFields;
 		this.debugMessage = ex.getLocalizedMessage();
 	}
 
@@ -72,21 +86,12 @@ class ApiError {
 		this.debugMessage = debugMessage;
 	}
 
-	public List<ApiSubError> getSubErrors() {
-		return subErrors;
-	}
-
-	public void setSubErrors(List<ApiSubError> subErrors) {
-		this.subErrors = subErrors;
-	}
-
-	public List<String> getErrorFields() {
+	public List<FieldError> getErrorFields() {
 		return errorFields;
 	}
 
-	public void setErrorFields(List<String> errorFields) {
+	public void setErrorFields(List<FieldError> errorFields) {
 		this.errorFields = errorFields;
 	}
-	
 
 }

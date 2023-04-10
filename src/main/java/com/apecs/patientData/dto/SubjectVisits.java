@@ -1,18 +1,19 @@
 package com.apecs.patientData.dto;
 
+import javax.validation.constraints.NotNull;
+
 public class SubjectVisits {
 	
-	private String visitId;
-	private String patientId;
-	private String PatientVisitId;
-	private String visitDefId;
+	@NotNull
+	private String visitNumber;
 	private String name;
-	private boolean visitCompleted;
+	private String visitCompleted;
+	@NotNull
 	private String visitEvent;
 	private String visitDate;
 	private String visitScheduleStartDate;
 	private String visitScheduleEndDate;
-	private String siteId;
+	@NotNull
 	private String siteNumber;
 	private String patientStatus;
 	private String screenFailedReason;
@@ -21,22 +22,18 @@ public class SubjectVisits {
 	private String monitoringDate;
 	private boolean nonPayable;
 	private String edcUpdatedDate;
-	
-	public SubjectVisits(String visitId, String patientId, String visitDefId, String name, boolean visitCompleted,
-			String visitEvent, String visitDate, String visitScheduleStartDate, String visitScheduleEndDate,
-			String siteId, String siteNumber, String patientStatus, String screenFailedReason, String sourceReference,
-			String sourceSystem, String monitoringDate, boolean nonPayable, String edcUpdatedDate) {
+	public SubjectVisits(@NotNull String visitNumber, String name, String visitCompleted, @NotNull String visitEvent,
+			String visitDate, String visitScheduleStartDate, String visitScheduleEndDate, @NotNull String siteNumber,
+			String patientStatus, String screenFailedReason, String sourceReference, String sourceSystem,
+			String monitoringDate, boolean nonPayable, String edcUpdatedDate) {
 		super();
-		this.visitId = visitId;
-		this.patientId = patientId;
-		this.visitDefId = visitDefId;
+		this.visitNumber = visitNumber;
 		this.name = name;
 		this.visitCompleted = visitCompleted;
 		this.visitEvent = visitEvent;
 		this.visitDate = visitDate;
 		this.visitScheduleStartDate = visitScheduleStartDate;
 		this.visitScheduleEndDate = visitScheduleEndDate;
-		this.siteId = siteId;
 		this.siteNumber = siteNumber;
 		this.patientStatus = patientStatus;
 		this.screenFailedReason = screenFailedReason;
@@ -46,30 +43,11 @@ public class SubjectVisits {
 		this.nonPayable = nonPayable;
 		this.edcUpdatedDate = edcUpdatedDate;
 	}
-	public String getVisitId() {
-		return visitId;
+	public String getVisitNumber() {
+		return visitNumber;
 	}
-	public void setVisitId(String visitId) {
-		this.visitId = visitId;
-	}
-	public String getPatientId() {
-		return patientId;
-	}
-	public void setPatientId(String patientId) {
-		this.patientId = patientId;
-	}
-	
-	public String getPatientVisitId() {
-		return PatientVisitId;
-	}
-	public void setPatientVisitId(String patientVisitId) {
-		PatientVisitId = patientVisitId;
-	}
-	public String getVisitDefId() {
-		return visitDefId;
-	}
-	public void setVisitDefId(String visitDefId) {
-		this.visitDefId = visitDefId;
+	public void setVisitNumber(String visitNumber) {
+		this.visitNumber = visitNumber;
 	}
 	public String getName() {
 		return name;
@@ -77,10 +55,10 @@ public class SubjectVisits {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public boolean isVisitCompleted() {
+	public String getVisitCompleted() {
 		return visitCompleted;
 	}
-	public void setVisitCompleted(boolean visitCompleted) {
+	public void setVisitCompleted(String visitCompleted) {
 		this.visitCompleted = visitCompleted;
 	}
 	public String getVisitEvent() {
@@ -106,12 +84,6 @@ public class SubjectVisits {
 	}
 	public void setVisitScheduleEndDate(String visitScheduleEndDate) {
 		this.visitScheduleEndDate = visitScheduleEndDate;
-	}
-	public String getSiteId() {
-		return siteId;
-	}
-	public void setSiteId(String siteId) {
-		this.siteId = siteId;
 	}
 	public String getSiteNumber() {
 		return siteNumber;
@@ -162,6 +134,4 @@ public class SubjectVisits {
 		this.edcUpdatedDate = edcUpdatedDate;
 	}
 	
-	
-
 }

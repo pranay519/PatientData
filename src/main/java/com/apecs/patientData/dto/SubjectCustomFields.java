@@ -1,7 +1,9 @@
 package com.apecs.patientData.dto;
 
+import javax.validation.constraints.NotNull;
+
 public class SubjectCustomFields {
-	
+	@NotNull
 	private String name;
 	private String value;
 	
